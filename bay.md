@@ -26,6 +26,6 @@ $$P(X_1  = x_1, X_2 = x_2, \cdots, X_n = x_n | Y = C_k) = P(X_1 =x _1|Y=C_k)\cdo
 
 4. 给定测试集的一个新样本特征(x_1^{(test)},x_2^{(test)},...x_n^{(test)})，判断类别：计算出所有的K个条件概率$P(Y=C_k|X=X^{(test)})$，然后找出最大的条件概率对应的类别.
 
-$$P(Y = C_ k | X = X^{(test)} = P(X = X^{(test)}| Y = C_k) P(Y = C_k)/P(X = \prod_{i=1}^n P(X_i  = x_i^{(test)| Y = C_k}$$
+$$P(Y = C_ k | X = X^{(test)} = P(X = X^{(test)}| Y = C_k) P(Y = C_k)/P(X = \prod_{i=1}^n P(X_i  = x_i^{(test)| Y = C_k})$$
 
 完。
