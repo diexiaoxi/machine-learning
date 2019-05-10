@@ -17,7 +17,7 @@ $$(x_1^{(1)}, x_2^{(1)},\cdots, x_n^{(1)}, y_1), (x_1^{(2)}, x_1^{(2)},\cdots, x
 $$P(Y=C_k), (k=1,2,...K)$$
 
 2. 统计条件概率分布：
-$$P(X1 = x_1|Y = C_k), \cdots, P(X_n = x_n|Y = C_k), k = 1,2,\cdots,K$$
+$$P(X_1 = x_1|Y = C_k), \cdots, P(X_n = x_n|Y = C_k), k = 1,2,\cdots,K$$
 
 3. 计算联合分布：
 $$P(X_1  = x_1, X_2 = x_2, \cdots, X_n = x_n | Y = C_k) = P(X_1 =x _1|Y=C_k)\cdot P(X_2 = x_2 | Y = C_k) \cdots P(X_n = x_n|Y = C_k).$$
