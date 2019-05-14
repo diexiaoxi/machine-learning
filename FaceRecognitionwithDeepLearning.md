@@ -13,7 +13,8 @@
 最终每个像素会被一个箭头取代。这些箭头被称为梯度（gradients），它们能显示出图像上从明亮到黑暗的流动过程：
 原因：深浅流动不随图片本身的深浅改变。
 为了取出最重要的特征，将图片分割，只取每块指向性最强的梯度。
-(```)
+
+```
   import sys
   import dlib
   from skimage import io
@@ -50,5 +51,4 @@
 	        
   # Wait until the user hits <enter> to close the window	        
   dlib.hit_enter_to_continue()
-  
-(```)
+```
