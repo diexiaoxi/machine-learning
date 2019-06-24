@@ -46,6 +46,14 @@ $$Cov(a,b) = \frac{1}{m}\sum_{i = 1}^{m}a_i b_i$$
 假设我们只有a和b两个字段，那么我们将它们按行组成矩阵X：
 
 $$X  = \begin{pmatrix}
- a_1 & a_2 & \cdots & a_m \\ 
+ a_1 & a_2 & \cdots & a_m\\
+ \\
  b_1 & b_2 & \cdots & a_m
 \end{pmatrix} $$
+
+然后进行以下运算：
+$$\frac{1}{m}XX^{T} = \begin{pmatrix}
+ \frac{1}{m}\sum_{i=1}^{m}a_1^2  & \frac{1}{m}\sum_{i=1}^{m}a_i b_i\\
+\frac{1}{m}\sum_{i=1}^{m}a_ib_i & \frac{1}{m}\sum_{i=1}^{m}b_i^2
+\end{pmatrix} $$
+
