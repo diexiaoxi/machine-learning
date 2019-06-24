@@ -46,13 +46,34 @@ $$Cov(a,b) = \frac{1}{m}\sum_{i = 1}^{m}a_i b_i$$
 假设我们只有a和b两个字段，那么我们将它们按行组成矩阵X：
 
 $$X  = \begin{pmatrix}
- a_1 & a_2 & \cdots & a_m\
+ a_1 & a_2 & \cdots & a_m \\
  b_1 & b_2 & \cdots & a_m
 \end{pmatrix} $$
 
 然后进行以下运算：
 $$\frac{1}{m}XX^{T} = \begin{pmatrix}
- \frac{1}{m}\sum_{i=1}^{m}a_1^2  & \frac{1}{m}\sum_{i=1}^{m}a_i b_i\
+ \frac{1}{m}\sum_{i=1}^{m}a_1^2  & \frac{1}{m}\sum_{i=1}^{m}a_i b_i\\
 \frac{1}{m}\sum_{i=1}^{m}a_ib_i & \frac{1}{m}\sum_{i=1}^{m}b_i^2
 \end{pmatrix} $$
+可以发现，这个矩阵对角线上的两个元素分别是两个字段的方差，而其它元素是a和b的协方差。
+
+根据矩阵相乘的运算法则，这个结论很容易被推广到一般情况：
+设我们有$m$个$n$维数据记录，将其按列排成$n$乘$m$的矩阵$X$，设$C =\frac{1}{m}XX^{T} $，则$C$是一个对称矩阵，其对角线分别个各个字段的方差，而第$i$行$j$列和$j$行$i$列元素相同，表示$i$和$j$两个字段的协方差。
+
+## 协方差矩阵对角化
+
+设原始数据矩阵X对应的协方差矩阵为C，而P是一组基按行组成的矩阵，设Y=PX，则Y为X对P做基变换后的数据。设Y的协方差矩阵为D，则
+
+$$
+\begin{aligned}
+D & = \frac{1}{m}YY^{T}\\
+& = \frac{1}{m}(PX)(PX)^T\\
+& = \frac{1}{m} PXX^TP^T\\
+& = P(\frac{1}{m}XX^{T})P^{T}\\
+& = PCP^{T}
+\end{aligned}
+$$
+
+
+
 
