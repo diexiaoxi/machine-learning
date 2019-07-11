@@ -25,8 +25,29 @@ IOW,  K的每个元素对应的是两个X的一个相似性度量:
 然后利用训练集计算黄色的K，然后利用测试点和每个训练集的X求出绿色的K*，然后整个联合分布就可以知道了。
 
 
-我们既然已经知道（f,f*)的联合分布P(f, f*)的所有参数, 如何求p(f*) ？好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
+我们既然已经知道$(f,f^{\ast})$的联合分布$P(f, f^{\ast})$的所有参数, 如何求$p(f^{\ast})$? 好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
 
-　接下来的事情就好办了，我们既然已经知道（f,f*)的联合分布P(f, f*)的所有参数, 如何求p(f*) ？好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
+接下来的事情就好办了，我们既然已经知道$f,f^{\ast}$的联合分布$P(f,f^{\ast})$的所有参数, 如何求$p(f^{\ast})$?好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
 
-　　不难求出f* 隶属于一个1维的正态分布， 参数是：
+不难求出$f^{\ast}$隶属于一个1维的正态分布， 参数是:
+
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/obj4h7sv1v.png?imageView2/2/w/1620)
+
+所以不难看出，高斯过程回归其实是一种贝叶斯方法：因为此处求出的其实是整个后验概率的分布。
+同时，高斯过程回归不仅可以得到$f^{\ast}$这个点的分布，对于未知的函数也可以进行推断。如果把一个函数作为一个变量，那么高斯过程回归也可以求出这个函数的分布。对于一个连续函数，通过在一次取样均匀的采样，然后求出测试点和训练集所对应的的$y$的联合分布，然后在这个高维联合分布里采样，就可得到函数近似的样本。
+
+高斯过程是在函数上的正态分布（Gaussian distribution over functions)。具体而言就是
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/5fmvausfmw.png?imageView2/2/w/1620)
+
+我们观察到一个训练集D
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/nsogbd2v9d.png?imageView2/2/w/1620)
+
+给定一个测试集 X* （ X* 是一个 N* x D 的矩阵， D是每一个点的维度）我们希望得到 一个 N* 维的预测向量 f*. 高斯过程回归的模型假设是
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/pxgzec332e.png?imageView2/2/w/1620)
+
+然后根据贝叶斯回归的方法，我们可以求出来f*的后验概率：
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/nxx0ophphx.png?imageView2/2/w/1620)
+
+全文参考：https://cloud.tencent.com/developer/article/1353538
+  
+  完。
