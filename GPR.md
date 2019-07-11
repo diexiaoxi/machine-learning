@@ -12,23 +12,21 @@
 IOW,  K的每个元素对应的是两个X的一个相似性度量:
 ![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/6o759krwva.png?imageView2/2/w/1620)
 
+如何保证这个相似性度量所产生的矩阵是一个合法的协方差矩阵——>Mercer矩阵，SVM里面的核函数，例如高斯核，就可以拿来用了。即：
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/q2xf1rlw1r.png?imageView2/2/w/1620)
 
-那么问题来了，这个相似性怎么算？如何保证这个相似性度量所产生的矩阵是一个合法的协方差矩阵？ 
+但这跟回归有什么关系：现在我们有一个新点了$x^{\ast}$, 想要求对应的$f^{\ast}$：
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/7w808ogcm6.png?imageView2/2/w/16200)
 
-好，现在不要往下看了，你自己想3分钟。你也能想出来的。 提示：合法的协方差矩阵就是 (symmetric) Positive Semi-definite Matrix （。。。。。。。。。。。。思考中） 好了时间到。
+根据假设，我们假设$f^{\ast}$和训练集里的$f_1$, $f_2$, $f_3$同属于一个（4维的）联合正态分布！
+也就是：
+![Alt text](https://ask.qcloudimg.com/http-save/yehe-1215004/suwm4u6kma.png?imageView2/2/w/1620)
 
-　　答案： Kernel functions !
+然后利用训练集计算黄色的K，然后利用测试点和每个训练集的X求出绿色的K*，然后整个联合分布就可以知道了。
 
-　　矩阵A正定是指,对任意的X≠0恒有X^TAX＞0。
-　　矩阵A半正定是指,对任意的X≠0恒有X^TAX≥0。
 
-　　判定A是半正定矩阵的充要条件是：A的所有顺序主子式大于或等于零。
+我们既然已经知道（f,f*)的联合分布P(f, f*)的所有参数, 如何求p(f*) ？好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
 
-　　如果你了解SVM的话，就会接触过一个著名的Mercer Theorem，（当然如果你了解泛函分析的话也会接触过 ），这个M定理是在说：一个矩阵是Positive Semi-definite Matrix当且仅当该矩阵是一个Mercer Kernel .
+　接下来的事情就好办了，我们既然已经知道（f,f*)的联合分布P(f, f*)的所有参数, 如何求p(f*) ？好消息是这个联合分布是正态的，我们直接用公式就能搞出来下面的结果（using the marginalization  property）：
 
-　　所以我们在svm里用过的任何Kernel都能拿过来用！
-
-　　举个栗子，在高斯过程回归里，一种非常常见的Kernel就是SVM里面著名的高斯核（但是为了让命名不是那么混淆，文献中一般把这个Kernel称作 squared exponential kernel.
-
-　　具体而言就是
-
+　　不难求出f* 隶属于一个1维的正态分布， 参数是：
