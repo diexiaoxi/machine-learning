@@ -1,10 +1,17 @@
 ## Model based
 
 学习的全过程：
-第一步：从与真实世界互动的经历(Experience)中建立模型。
-第二步：在模型中进行学习(可以使用MDP，TD等等所有之前使用的方法) 更新价值函数和策略。
-第三步：用学到的价值函数和策略与真实世界进行互动并获得更多的经历。
+- 第一步：从与真实世界互动的经历(Experience)中建立模型。\\
+- 第二步：在模型中进行学习(可以使用MDP，TD等等所有之前使用的方法) 更新价值函数和策略。
+- 第三步：用学到的价值函数和策略与真实世界进行互动并获得更多的经历。
 
 [![](https://upload-images.jianshu.io/upload_images/10816620-586051ee2b3748a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/261/format/webp)
+
+模型$M$实际上就是对环境，MDP<S, A, P, R>的参数化$\eta$近似，假设状态$S$和行为空间$A$是已知的。实际上就是对转移函数$P$和奖励$R$的参数化近似。
+
+$M = <\mathcal{P}_{\eta},\mathcal{R}_{\eta}>$
+其中 $\mathcal{P}_{\eta} = P(S_{n+1}|S_{n},A_{n})$,$\mathcal{R}_{\eta} = R(S_{n+1}|S_{n},A_{n})$
+
+
 
 
