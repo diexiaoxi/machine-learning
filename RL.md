@@ -5,12 +5,12 @@
 - 第二步：在模型中进行学习(可以使用MDP，TD等等所有之前使用的方法) 更新价值函数和策略。
 - 第三步：用学到的价值函数和策略与真实世界进行互动并获得更多的经历。
 
-[![](https://upload-images.jianshu.io/upload_images/10816620-586051ee2b3748a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/261/format/webp)]
+[!(https://upload-images.jianshu.io/upload_images/10816620-586051ee2b3748a9.png?imageMogr2/auto-orient/strip|imageView2/2/w/261/format/webp)]
 
 模型$M$实际上就是对环境，MDP<S, A, P, R>的参数化$\eta$近似，假设状态$S$和行为空间$A$是已知的。实际上就是对转移函数$P$和奖励$R$的参数化近似。
 
-$M = <\mathcal{P}_{\eta},\mathcal{R}_{\eta}>$
-其中 $\mathcal{P}_{\eta} = P(S_{n+1}|S_{n},A_{n})$,$\mathcal{R}_{\eta} = R(S_{n+1}|S_{n},A_{n})$
+$$M = <{P}_{\eta},{R}_{\eta}>$$
+其中 ${P}_{\eta} = P(S_{n+1}|S_{n},A_{n})$,${R}_{\eta} = R(S_{n+1}|S_{n},A_{n})$
 
 
 模型的建立可以通过监督学习的方式，其中从s, a 学习 r 的过程是一个回归问题(regression problem)；从s, a 学习 s' 的过程是一个密度估计问题(density estimation problem)。可以是查表式(Table lookup Model)、线性期望模型(Linear Expectation Model)、线性高斯模型(Linear Gaussian Model)、高斯决策模型(Gaussian Process Model)、和深信度神经网络模型(Deep Belief Network Model)等
